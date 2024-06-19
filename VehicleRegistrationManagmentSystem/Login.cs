@@ -13,16 +13,22 @@ namespace VehicleRegistrationManagmentSystem
     public partial class Login : Form
     {
         public Login()
-        {  
+        {
             InitializeComponent();
+            txtPass.UseSystemPasswordChar = true;
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string user = txtUser.Text;
             string pass = txtPass.Text;
-
-            if(checkUser(user, pass))
+            if(user == "" || pass == "")
+            {
+                MessageBox.Show("Please fill in all fields");
+                return;
+            }
+            if (checkUser(user, pass))
             {
                 MainForm mainform = new MainForm();
                 mainform.Show();
@@ -55,6 +61,26 @@ namespace VehicleRegistrationManagmentSystem
                 return false;
             }
         }
-    
+
+
+        private void checkBoxPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPass.Checked)
+            {
+
+                txtPass.UseSystemPasswordChar = false;
+
+            }
+            else
+            {
+
+                txtPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void lblExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
