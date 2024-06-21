@@ -34,7 +34,7 @@
             label2 = new Label();
             txtName = new TextBox();
             btnCreate = new Button();
-            button2 = new Button();
+            btnUpdate = new Button();
             btnExit = new Button();
             errorName = new ErrorProvider(components);
             errorPhone = new ErrorProvider(components);
@@ -99,15 +99,16 @@
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
             // 
-            // button2
+            // btnUpdate
             // 
-            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            button2.Location = new Point(226, 142);
-            button2.Name = "button2";
-            button2.Size = new Size(183, 45);
-            button2.TabIndex = 6;
-            button2.Text = "Update Owner Info";
-            button2.UseVisualStyleBackColor = true;
+            btnUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btnUpdate.Location = new Point(226, 142);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(183, 45);
+            btnUpdate.TabIndex = 6;
+            btnUpdate.Text = "Update Owner Info";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnExit
             // 
@@ -194,7 +195,7 @@
             Controls.Add(label3);
             Controls.Add(txtPhone);
             Controls.Add(btnExit);
-            Controls.Add(button2);
+            Controls.Add(btnUpdate);
             Controls.Add(btnCreate);
             Controls.Add(txtName);
             Controls.Add(label2);
@@ -218,7 +219,7 @@
         private Label label2;
         private TextBox txtName;
         private Button btnCreate;
-        private Button button2;
+        private Button btnUpdate;
         private Button btnExit;
         private ErrorProvider errorName;
         private ErrorProvider errorPhone;

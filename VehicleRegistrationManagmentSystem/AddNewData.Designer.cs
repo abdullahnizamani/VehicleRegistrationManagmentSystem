@@ -124,7 +124,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(985, 400);
+            btnSave.Location = new Point(985, 337);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 6;
@@ -134,7 +134,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(1094, 400);
+            btnCancel.Location = new Point(1094, 337);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 7;
@@ -163,7 +163,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(490, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(698, 351);
+            groupBox1.Size = new Size(698, 293);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "VehicleData";
@@ -334,7 +334,7 @@
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.Location = new Point(12, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(472, 351);
+            groupBox2.Size = new Size(472, 293);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             groupBox2.Text = "OwnerData";
@@ -361,16 +361,16 @@
             // 
             xGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             xGrid.GridColor = SystemColors.HotTrack;
-            xGrid.Location = new Point(12, 460);
+            xGrid.Location = new Point(12, 397);
             xGrid.Name = "xGrid";
             xGrid.RowHeadersWidth = 51;
-            xGrid.Size = new Size(1176, 86);
+            xGrid.Size = new Size(1176, 91);
             xGrid.TabIndex = 10;
             xGrid.Visible = false;
             // 
             // btnConfirm
             // 
-            btnConfirm.Location = new Point(1094, 552);
+            btnConfirm.Location = new Point(1094, 523);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(94, 29);
             btnConfirm.TabIndex = 11;
@@ -437,14 +437,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1226, 593);
+            ClientSize = new Size(1226, 566);
             Controls.Add(btnConfirm);
             Controls.Add(xGrid);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AddNewData";
             Text = "Create a New Record";
             groupBox1.ResumeLayout(false);
@@ -507,5 +507,6 @@
         private ErrorProvider errorColor;
         private ErrorProvider errorPlate;
         private ErrorProvider errorYear;
+        private Button btnBrowse;
     }
 }

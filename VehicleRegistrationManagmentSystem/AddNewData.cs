@@ -21,7 +21,8 @@ namespace VehicleRegistrationManagmentSystem
         private readonly string txtengine = @"^ENG-\d{9}$";
         private readonly string txtchasis = @"^CHA-\d{9}$";
         private readonly string noplate = @"^[A-Z]{2}[A-Z]?-?\d{3}\d?$";
-
+        public int AID;
+     
 
         public AddNewData()
         {
@@ -177,7 +178,7 @@ namespace VehicleRegistrationManagmentSystem
 
 
                 int current_AID;
-                int AID;
+
                 string connectionString = "Data Source=DESKTOP-P469VTF;Initial Catalog=VehicleOwnerData;Integrated Security=True;Encrypt=False";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -195,7 +196,7 @@ namespace VehicleRegistrationManagmentSystem
                         }
                     }
 
-                 
+
                     using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE ChasisNo = @ChasisNo", conn))
                     {
                         cmd.Parameters.AddWithValue("@ChasisNo", txtChasis.Text);
@@ -230,6 +231,9 @@ namespace VehicleRegistrationManagmentSystem
 
                     }
                 }
+
+
+                
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -261,7 +265,10 @@ namespace VehicleRegistrationManagmentSystem
                     SqlDataReader reader = sqlCommand.ExecuteReader();
                     DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
+
+            
                     xGrid.DataSource = dataTable;
+
                 }
                 xGrid.Visible = true;
 
@@ -272,7 +279,7 @@ namespace VehicleRegistrationManagmentSystem
             }
         }
 
- 
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -282,5 +289,6 @@ namespace VehicleRegistrationManagmentSystem
 
 
         }
+
     }
 }

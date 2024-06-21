@@ -162,5 +162,11 @@ namespace VehicleRegistrationManagmentSystem
                 }
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateOwnerData updateOwnerData = new UpdateOwnerData();
+            updateOwnerData.Show();
+        }
     }
 }
