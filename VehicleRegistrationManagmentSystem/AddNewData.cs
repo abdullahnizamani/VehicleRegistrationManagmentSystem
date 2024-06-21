@@ -182,27 +182,41 @@ namespace VehicleRegistrationManagmentSystem
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
+
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE EngineNo = @EngineNo", conn);
-                    cmd.Parameters.AddWithValue("@EngineNo", txtEngine.Text);
-                    int count = (int)cmd.ExecuteScalar();
-                    if (count > 0)
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE EngineNo = @EngineNo", conn))
                     {
-                        MessageBox.Show("Engine Number Already Exists");
-                        return;
+                        cmd.Parameters.AddWithValue("@EngineNo", txtEngine.Text);
+                        int count = (int)cmd.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Engine Number Already Exists");
+                            return;
+                        }
                     }
-                }
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE ChasisNo = @ChasisNo", conn);
-                    cmd.Parameters.AddWithValue("@ChasisNo", txtChasis.Text);
-                    int count = (int)cmd.ExecuteScalar();
-                    if (count > 0)
+
+                 
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE ChasisNo = @ChasisNo", conn))
                     {
-                        MessageBox.Show("Chasis Number Already Exists");
-                        return;
+                        cmd.Parameters.AddWithValue("@ChasisNo", txtChasis.Text);
+                        int count = (int)cmd.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Chasis Number Already Exists");
+                            return;
+                        }
                     }
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Owner_Info WHERE NoPlate = @NoPlate", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NoPlate", txtPlate.Text);
+                        int count = (int)cmd.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Number Plate Already Exists");
+                            return;
+                        }
+                    }
+
                 }
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -262,8 +276,10 @@ namespace VehicleRegistrationManagmentSystem
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (AID != Curent)
+            MainForm mainForm = new MainForm();
+            mainForm.Focus();
             this.Close();
+
 
         }
     }
