@@ -27,5 +27,10 @@ namespace VehicleRegistrationManagmentSystem
             AddNewData Form1 = new AddNewData();
             Form1.Show();
         }
+
+        private void lblExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

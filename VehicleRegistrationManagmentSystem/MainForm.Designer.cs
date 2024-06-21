@@ -36,11 +36,12 @@
             btnCreate = new Button();
             button2 = new Button();
             btnExit = new Button();
+            lblExit = new Label();
             SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(616, 38);
+            btnSearch.Location = new Point(624, 57);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(137, 31);
             btnSearch.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(17, 38);
+            label1.Location = new Point(25, 57);
             label1.Name = "label1";
             label1.Size = new Size(68, 28);
             label1.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(297, 38);
+            label2.Location = new Point(305, 57);
             label2.Name = "label2";
             label2.Size = new Size(105, 28);
             label2.TabIndex = 2;
@@ -69,21 +70,21 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(118, 42);
+            txtName.Location = new Point(126, 61);
             txtName.Name = "txtName";
             txtName.Size = new Size(131, 27);
             txtName.TabIndex = 3;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(431, 39);
+            txtPhone.Location = new Point(439, 58);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(131, 27);
             txtPhone.TabIndex = 4;
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(43, 155);
+            btnCreate.Location = new Point(51, 174);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(167, 45);
             btnCreate.TabIndex = 5;
@@ -93,7 +94,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(235, 155);
+            button2.Location = new Point(243, 174);
             button2.Name = "button2";
             button2.Size = new Size(167, 45);
             button2.TabIndex = 6;
@@ -111,12 +112,24 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // lblExit
+            // 
+            lblExit.AutoSize = true;
+            lblExit.Font = new Font("Tahoma", 11F);
+            lblExit.Location = new Point(767, 9);
+            lblExit.Name = "lblExit";
+            lblExit.Size = new Size(21, 23);
+            lblExit.TabIndex = 8;
+            lblExit.Text = "X";
+            lblExit.Click += lblExit_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblExit);
             Controls.Add(btnExit);
             Controls.Add(button2);
             Controls.Add(btnCreate);
@@ -125,6 +138,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSearch);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "MainForm";
             ResumeLayout(false);
@@ -141,5 +155,6 @@
         private Button btnCreate;
         private Button button2;
         private Button btnExit;
+        private Label lblExit;
     }
 }

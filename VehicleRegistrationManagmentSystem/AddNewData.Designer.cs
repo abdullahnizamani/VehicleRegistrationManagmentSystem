@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             txtName = new TextBox();
             label2 = new Label();
@@ -35,6 +36,7 @@
             btnSave = new Button();
             btnCancel = new Button();
             groupBox1 = new GroupBox();
+            txtEngine = new MaskedTextBox();
             txtChasis = new MaskedTextBox();
             label12 = new Label();
             comboColor = new ComboBox();
@@ -54,11 +56,32 @@
             txtPhone = new MaskedTextBox();
             txtNIC = new MaskedTextBox();
             xGrid = new DataGridView();
-            button1 = new Button();
-            txtEngine = new MaskedTextBox();
+            btnConfirm = new Button();
+            errorName = new ErrorProvider(components);
+            errorNIC = new ErrorProvider(components);
+            errorPhone = new ErrorProvider(components);
+            errorEngine = new ErrorProvider(components);
+            errorChasis = new ErrorProvider(components);
+            errorVehicleName = new ErrorProvider(components);
+            errorBrand = new ErrorProvider(components);
+            errorReg = new ErrorProvider(components);
+            errorColor = new ErrorProvider(components);
+            errorPlate = new ErrorProvider(components);
+            errorYear = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorNIC).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorPhone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorEngine).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorChasis).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorVehicleName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorBrand).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorReg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorColor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorPlate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorYear).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -101,7 +124,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(874, 399);
+            btnSave.Location = new Point(985, 400);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 6;
@@ -111,7 +134,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(983, 399);
+            btnCancel.Location = new Point(1094, 400);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 7;
@@ -145,13 +168,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "VehicleData";
             // 
+            // txtEngine
+            // 
+            txtEngine.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEngine.Location = new Point(491, 35);
+            txtEngine.Mask = ">ENG-000000000";
+            txtEngine.Name = "txtEngine";
+            txtEngine.Size = new Size(162, 34);
+            txtEngine.TabIndex = 21;
+            // 
             // txtChasis
             // 
             txtChasis.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtChasis.Location = new Point(493, 140);
             txtChasis.Mask = ">\\CH\\A-000000000";
             txtChasis.Name = "txtChasis";
-            txtChasis.Size = new Size(151, 34);
+            txtChasis.Size = new Size(160, 34);
             txtChasis.TabIndex = 20;
             // 
             // label12
@@ -172,7 +204,7 @@
             comboColor.Location = new Point(493, 91);
             comboColor.Name = "comboColor";
             comboColor.RightToLeft = RightToLeft.Yes;
-            comboColor.Size = new Size(151, 36);
+            comboColor.Size = new Size(160, 36);
             comboColor.TabIndex = 18;
             // 
             // txtPlate
@@ -181,7 +213,7 @@
             txtPlate.Location = new Point(491, 199);
             txtPlate.Mask = ">LL?-0009";
             txtPlate.Name = "txtPlate";
-            txtPlate.Size = new Size(151, 34);
+            txtPlate.Size = new Size(162, 34);
             txtPlate.TabIndex = 12;
             // 
             // txtReg
@@ -328,42 +360,91 @@
             // xGrid
             // 
             xGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            xGrid.Location = new Point(12, 482);
+            xGrid.GridColor = SystemColors.HotTrack;
+            xGrid.Location = new Point(12, 460);
             xGrid.Name = "xGrid";
             xGrid.RowHeadersWidth = 51;
-            xGrid.Size = new Size(1065, 47);
+            xGrid.Size = new Size(1176, 86);
             xGrid.TabIndex = 10;
             xGrid.Visible = false;
             // 
-            // button1
+            // btnConfirm
             // 
-            button1.Location = new Point(983, 552);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 11;
-            button1.Text = "Confirm";
-            button1.UseVisualStyleBackColor = true;
+            btnConfirm.Location = new Point(1094, 552);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(94, 29);
+            btnConfirm.TabIndex = 11;
+            btnConfirm.Text = "Confirm";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
             // 
-            // txtEngine
+            // errorName
             // 
-            txtEngine.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtEngine.Location = new Point(491, 35);
-            txtEngine.Mask = ">ENG-000000000";
-            txtEngine.Name = "txtEngine";
-            txtEngine.Size = new Size(151, 34);
-            txtEngine.TabIndex = 21;
+            errorName.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorName.ContainerControl = this;
+            // 
+            // errorNIC
+            // 
+            errorNIC.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorNIC.ContainerControl = this;
+            // 
+            // errorPhone
+            // 
+            errorPhone.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorPhone.ContainerControl = this;
+            // 
+            // errorEngine
+            // 
+            errorEngine.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorEngine.ContainerControl = this;
+            // 
+            // errorChasis
+            // 
+            errorChasis.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorChasis.ContainerControl = this;
+            // 
+            // errorVehicleName
+            // 
+            errorVehicleName.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorVehicleName.ContainerControl = this;
+            // 
+            // errorBrand
+            // 
+            errorBrand.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorBrand.ContainerControl = this;
+            // 
+            // errorReg
+            // 
+            errorReg.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorReg.ContainerControl = this;
+            // 
+            // errorColor
+            // 
+            errorColor.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorColor.ContainerControl = this;
+            // 
+            // errorPlate
+            // 
+            errorPlate.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorPlate.ContainerControl = this;
+            // 
+            // errorYear
+            // 
+            errorYear.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorYear.ContainerControl = this;
             // 
             // AddNewData
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1287, 593);
-            Controls.Add(button1);
+            ClientSize = new Size(1226, 593);
+            Controls.Add(btnConfirm);
             Controls.Add(xGrid);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AddNewData";
             Text = "Create a New Record";
             groupBox1.ResumeLayout(false);
@@ -371,6 +452,17 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)xGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorNIC).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorPhone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorEngine).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorChasis).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorVehicleName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorBrand).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorReg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorColor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorPlate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorYear).EndInit();
             ResumeLayout(false);
         }
 
@@ -396,7 +488,7 @@
         private Label label10;
         private GroupBox groupBox2;
         private DataGridView xGrid;
-        private Button button1;
+        private Button btnConfirm;
         private MaskedTextBox txtNIC;
         private MaskedTextBox txtPhone;
         private MaskedTextBox txtPlate;
@@ -404,5 +496,16 @@
         private ComboBox comboColor;
         private MaskedTextBox txtChasis;
         private MaskedTextBox txtEngine;
+        private ErrorProvider errorName;
+        private ErrorProvider errorNIC;
+        private ErrorProvider errorPhone;
+        private ErrorProvider errorEngine;
+        private ErrorProvider errorChasis;
+        private ErrorProvider errorVehicleName;
+        private ErrorProvider errorBrand;
+        private ErrorProvider errorReg;
+        private ErrorProvider errorColor;
+        private ErrorProvider errorPlate;
+        private ErrorProvider errorYear;
     }
 }
