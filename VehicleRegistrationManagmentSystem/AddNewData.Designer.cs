@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             txtName = new TextBox();
             label2 = new Label();
@@ -203,7 +204,7 @@
             comboColor.Items.AddRange(new object[] { "White", "Black", "Gray", "Silver", "Blue", "Red", "Brown", "Green", "Beige", "Yellow" });
             comboColor.Location = new Point(493, 91);
             comboColor.Name = "comboColor";
-            comboColor.RightToLeft = RightToLeft.Yes;
+            comboColor.RightToLeft = RightToLeft.No;
             comboColor.Size = new Size(160, 36);
             comboColor.TabIndex = 18;
             // 
@@ -298,7 +299,7 @@
             comboYear.FormattingEnabled = true;
             comboYear.Location = new Point(154, 143);
             comboYear.Name = "comboYear";
-            comboYear.RightToLeft = RightToLeft.Yes;
+            comboYear.RightToLeft = RightToLeft.No;
             comboYear.Size = new Size(151, 36);
             comboYear.TabIndex = 2;
             // 
@@ -319,7 +320,7 @@
             comboBrand.Items.AddRange(new object[] { "Toyota", "Honda", "Kia", "Suzuki", "Daihatsu" });
             comboBrand.Location = new Point(154, 38);
             comboBrand.Name = "comboBrand";
-            comboBrand.RightToLeft = RightToLeft.Yes;
+            comboBrand.RightToLeft = RightToLeft.No;
             comboBrand.Size = new Size(151, 36);
             comboBrand.TabIndex = 0;
             // 
@@ -359,10 +360,20 @@
             // 
             // xGrid
             // 
+            xGrid.BackgroundColor = SystemColors.ActiveCaption;
             xGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            xGrid.DefaultCellStyle = dataGridViewCellStyle1;
             xGrid.GridColor = SystemColors.HotTrack;
             xGrid.Location = new Point(12, 397);
             xGrid.Name = "xGrid";
+            xGrid.ReadOnly = true;
             xGrid.RowHeadersWidth = 51;
             xGrid.Size = new Size(1176, 91);
             xGrid.TabIndex = 10;

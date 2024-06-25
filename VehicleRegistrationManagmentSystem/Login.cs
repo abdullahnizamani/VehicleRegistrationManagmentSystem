@@ -36,7 +36,7 @@ namespace VehicleRegistrationManagmentSystem
             }
             else
             {
-                MessageBox.Show("Nayyy");
+                MessageBox.Show("Wrong Username or Password");
             }
 
         }

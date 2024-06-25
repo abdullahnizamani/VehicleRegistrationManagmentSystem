@@ -220,20 +220,40 @@ namespace VehicleRegistrationManagmentSystem
 
                 }
 
+                /* using (SqlConnection connection = new SqlConnection(connectionString))
+                 {
+                     string query = "SELECT COUNT(*) FROM Owner_Info";
+
+                     using (SqlCommand command = new SqlCommand(query, connection))
+                     {
+                         connection.Open();
+                         current_AID = (int)command.ExecuteScalar();
+
+                     }
+                 }*/
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT COUNT(*) FROM Owner_Info";
+                    string query = "SELECT MAX(AID) FROM Owner_Info";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();
-                        current_AID = (int)command.ExecuteScalar();
+                        object result = command.ExecuteScalar();
 
+                        if (result != DBNull.Value)
+                        {
+                            current_AID = (int)result;
+                        }
+                        else
+                        {
+                            current_AID = 0; 
+                        }
                     }
                 }
 
 
-                
+
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

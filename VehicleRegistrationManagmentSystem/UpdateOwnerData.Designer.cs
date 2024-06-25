@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label3 = new Label();
             txtAID = new TextBox();
             btnSearch = new Button();
@@ -174,7 +175,16 @@
             // 
             // GridOld
             // 
+            GridOld.BackgroundColor = SystemColors.ActiveCaption;
             GridOld.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            GridOld.DefaultCellStyle = dataGridViewCellStyle1;
             GridOld.Location = new Point(12, 445);
             GridOld.Name = "GridOld";
             GridOld.ReadOnly = true;

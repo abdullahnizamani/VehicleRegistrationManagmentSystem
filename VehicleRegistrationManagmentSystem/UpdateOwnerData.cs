@@ -64,6 +64,7 @@ namespace VehicleRegistrationManagmentSystem
             {
                 errorPhone.Clear();
             }
+            return IsValid;
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
